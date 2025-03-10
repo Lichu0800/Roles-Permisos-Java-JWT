@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lisandro.autenticacion.model.Role;
-import com.lisandro.service.IPermissionService;
-import com.lisandro.service.IRoleService;
+import com.lisandro.autenticacion.service.IPermissionService;
+import com.lisandro.autenticacion.service.IRoleService;
 
 @RestController
 @RequestMapping("/api/roles")

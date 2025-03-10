@@ -1,10 +1,5 @@
 package com.lisandro.autenticacion.Security;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -20,7 +15,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -53,11 +47,11 @@ public class SecurityConfig {
 
     // AUTH PROVIDERS
     @Bean
-    public AuthenticationProvider authenticationProvider() {
+    public AuthenticationProvider authenticationProvider(UserDetailsService userDetailsService) {
         // Crea una instancia de authProvider para utilizarlo como objeto
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setPasswordEncoder(passwordEncoder());//
-        provider.setUserDetailsService(userDetailsService());
+        provider.setUserDetailsService(userDetailsService);
         return provider;
     }
 
@@ -66,28 +60,6 @@ public class SecurityConfig {
     // ejemplo queda default
     public PasswordEncoder passwordEncoder() {
         return NoOpPasswordEncoder.getInstance();
-    }
-
-    @Bean
-    // CREANDO DETAIL SERVICE DE FORMA LOGICA
-    public UserDetailsService userDetailsService() {
-        List<UserDetails> userDetailsList = new ArrayList<>();
-        userDetailsList.add(User.withUsername("Lichu")// Usuario
-                .password("1234")// Contra
-                .roles("ADMIN") // NombreRol
-                .authorities("CREATE", "READ", "UPDATE", "DELETE") // Permisos
-                .build());
-        userDetailsList.add(User.withUsername("seguidor")// Usuario
-                .password("1234")// Contra
-                .roles("USER") // NombreRol
-                .authorities("READ") // Permisos
-                .build());
-        userDetailsList.add(User.withUsername("actualizador")// Usuario
-                .password("1234")// Contra
-                .roles("USER") // NombreRol
-                .authorities("UPDATE") // Permisos
-                .build());
-        return new InMemoryUserDetailsManager(userDetailsList);
     }
 
 }

@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lisandro.autenticacion.model.Role;
 import com.lisandro.autenticacion.model.UserSec;
-import com.lisandro.service.IRoleService;
-import com.lisandro.service.IUserService;
+import com.lisandro.autenticacion.service.IRoleService;
+import com.lisandro.autenticacion.service.IUserService;
 
 @RestController
 @RequestMapping("/api/users")

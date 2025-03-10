@@ -1,6 +1,8 @@
 package com.lisandro.autenticacion.controller;
 
 import com.lisandro.autenticacion.model.Permission;
+import com.lisandro.autenticacion.service.IPermissionService;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -12,8 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.lisandro.service.IPermissionService;
 
 @RestController
 @RequestMapping("/api/permissions")
