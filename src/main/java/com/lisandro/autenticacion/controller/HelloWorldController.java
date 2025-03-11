@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @PreAuthorize("denyAll()")
 public class HelloWorldController {
     @GetMapping("/holaseg")
-    @PreAuthorize("hasAuthority('READ')")
+    @PreAuthorize("hasRole('ADMIN')")
     public String getMethodName() {
         return "HolaMundo";
     }

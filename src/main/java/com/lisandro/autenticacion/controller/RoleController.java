@@ -8,6 +8,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,6 +42,7 @@ public class RoleController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN') and hasAuthority('CREATE')")
     public ResponseEntity<Role> createRol(@RequestBody Role role) {
         Set<Permission> permiList = new HashSet<>(); // GUARDO LOS PERMISOS QUE MATCHEEN CON LA DB
         Permission readPermission; // VARIABLE AUXILIAR PARA GUARDAR EL PERMISO LEIDO
