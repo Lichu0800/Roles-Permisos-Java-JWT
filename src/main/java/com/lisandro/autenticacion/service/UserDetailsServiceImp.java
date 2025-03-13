@@ -19,8 +19,8 @@ import org.springframework.security.core.userdetails.User;
 import com.lisandro.autenticacion.model.UserSec;
 import com.lisandro.autenticacion.repository.IUserRepository;
 import com.lisandro.autenticacion.utils.JwtUtils;
-import com.lisandro.dto.AuthLoginRequestDTO;
-import com.lisandro.dto.AuthResponseDTO;
+import com.lisandro.autenticacion.dto.AuthResponseDTO;
+import com.lisandro.autenticacion.dto.AuthLoginRequestDTO;
 
 @Service
 public class UserDetailsServiceImp implements UserDetailsService {

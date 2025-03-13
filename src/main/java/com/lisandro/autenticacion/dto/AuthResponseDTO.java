@@ -1,4 +1,4 @@
-package com.lisandro.dto;
+package com.lisandro.autenticacion.dto;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 

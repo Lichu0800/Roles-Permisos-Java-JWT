@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lisandro.autenticacion.service.UserDetailsServiceImp;
-import com.lisandro.dto.AuthLoginRequestDTO;
-import com.lisandro.dto.AuthResponseDTO;
+import com.lisandro.autenticacion.dto.AuthResponseDTO;
+import com.lisandro.autenticacion.dto.AuthLoginRequestDTO;
 
 import jakarta.validation.Valid;
 
